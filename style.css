@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+html {
+  background: #018ded 
+  url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-size: cover;
+  font-family: "helvetica neue";
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .clock {
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid white;
+    border-radius: 50%;
+    /* margin: 50px auto; */
+    position: relative;
+    padding: 2rem;
+    box-shadow:
+      0 0 0 4px rgba(0,0,0,0.1), /*Outer most layer (shadow) of the circle*/
+      inset 0 0 0 3px #EFEFEF, /*Inner most layer (shadow) of the circle (within the circle)*/
+      inset 0 0 10px black,
+      0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /* account for the height of the clock hands */
+  }
+
+  .hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    /* we first need to set the transform-origin because by default the origin from which we transform 
+    an element is from the center (or 50%). All of our hands are positioned in such a way that we want to 
+    transform them from the right, so we set transform-origin: 100% and transform: rotate(90deg) to make 
+    sure the hands are facing upwards at 12 o’clock. */
+    transform: rotate(90deg); /*By default, the div element(black hand) pointing to 9 (think like a think line not as a actual time)*/
+    /* So. we need to rotate the line to 90 degree */
+    transition: all .05s;
+    transition-timing-function: cubic-bezier(0.1,2.7,0.58,1);
+  }
+
+.digital{
+    position: absolute;
+    bottom: 30px;
+    left: 110px;
+}
